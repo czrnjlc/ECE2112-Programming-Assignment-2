@@ -20,19 +20,22 @@ Code:
 import numpy as np
 
 # Generate a 5x5 array of random numbers
-X = np.random.random((5, 5))
+X = np.random.random((5,5))
 
-# Function to normalize the array
+# Define a function to normalize the input array
 def normalization(z):
+    # Calculate the mean of the array
     m = z.mean()
+    # Calculate the standard deviation of the array
     s = z.std()
+    # Normalize the input array using the formula (z - mean) / std_dev
     Z = (z - m) / s
+    # Return the normalized array
     return Z
 
-# Normalize the array
+# Normalize the random array X
 X_normalized = normalization(X)
-
-# Save the normalized array to a file
+# Save the normalized array to a .npy file
 np.save('X_normalized.npy', X_normalized)
 ```
 
@@ -46,16 +49,15 @@ np.save('X_normalized.npy', X_normalized)
 Code:
 
 ```python
-Copy code
 import numpy as np
 
-Create a 10x10 array of squares from 1 to 100
+# Create an array of squares from 1 to 100 in a 10x10 matrix
 x = (np.arange(1, 101) ** 2).reshape(10, 10)
 
-Filter elements divisible by 3
+# Initialize an empty list to store squares divisible by 3
 squares_div_by_3 = x[x % 3 == 0]
 
-Save the filtered elements to a file
+# Save the NumPy array to a file named 'div_by_3.npy'
 np.save('div_by_3.npy', squares_div_by_3)
 ```
 ### Metadata
